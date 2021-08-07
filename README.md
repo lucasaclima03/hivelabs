@@ -1,18 +1,16 @@
-# LogLife-API - NodeJS
+# Hivelabs-API - NodeJS
 
 ## Overview
 
 ### O teste    
-Criação de uma aplicação BACKEND utilizando NODEJS
-- Criar servidor utilizando o EXPRESS para efetuar um CRUD das informações na tabela CLIENTE  
-- Criar um middleware para autenticar as rotas  
-
-Rotas para serem consumidas:
-* Rota para receber as informações de todos clientes
-* Rota para receber as informações de um único cliente
-* Rota para enviar as informações de um único cliente
-* Rota para atualizar as informações de um único cliente
-* Rota para remover as informações de um único cliente
+ Criar um novo usuário recebendo os dados pelo corpo da requisição: retorna os dados do usuário criado com status correspondente.
+Se nickname já existe, retornar status e mensagem de erro.
+[] Listar todos os usuários cadastrados filtrados pelos campos nome e/ou sobrenome, filtrados por parâmetros de consulta: retorna um array de usuários.
+[] Listar um usuário pelo nickname passado como parâmetro: retorna um único usuário com nome, sobrenome e nickname.
+[] Alterar o sobrenome e o endereço do usuário recebido no corpo da requisição, baseado no id recebido como parâmetro de rota: retorna o usuário alterado com as novas informações.
+[] Alterar o nickname de um usuário recebido no corpo da requisição, baseado no id recebido como parâmetro de rota: retorna o usuário alterado com as novas informações.
+Se o nickname passado já existir, deve retornar status e mensagem de erro.
+[] Deletar um usuário baseado no id recebido como parâmetro de rota: retorna o status de sucesso.
 
 ### Como utilizar a API:  
   
@@ -23,99 +21,55 @@ Rotas para serem consumidas:
 
 3 - Cadastre um usúario utilizando o método POST na rota:  
 
-> YOUR-HOST:4040/users/sign-up
+> YOUR-HOST:4040/users/
 
 passando no corpo com formato raw JSON:  
 ```
  {   
-  "email": "EMAIL@EXEMPLO.COM",  
-  "password": "EXEMPLO-DE-SENHA"    
-}
-```
-  
-4 - Realize o LOGIN com o método POST na rota:  
-
-> YOUR-HOST:4040/users/sign-in  
-
-Insira os dados criados no passo anterior  
- ```
- {   
-  "email": "EMAIL@EXEMPLO.COM",  
-  "password": "EXEMPLO-DE-SENHA"    
-}
-```
- 
-5 - Ao fazer o login, será retornado um Bearer Token, utilize-o para fazer a autenticação das próximas rotas 
-
-6 - Com o Bearer Token adicionado, cadastre um novo cliente utilizando o método POST para a rota:  
-
-> YOUR-HOST:4040/clients
-
-Envie os dados do cliente com a seguinte estrutura:  
-  
-  ```
-  {       
-    "client_type": " ",
-    "client_status": " ",
     "name": " ",
-    "last_name": " ",
-    "cpf": " ",
-    "email": " ",
-    "phone": " ",
-    "cep": " ",
+    "lastname": " ",    
+    "nickname": " ",
     "address": " ",
-    "number": " ",
-    "city": " ",
-    "state": " ",
-    "opening_hour": " ",
-    "day_of_service": " ",
-    "vehicles": " "
+    "bio": " "   
 }
 ```
   
-7 - Para listar todos os clientes cadastrados utilize o método GET na rota:  
+7 - Para listar os usuários pelo nome e/ou sobrenome utilize o método GET na rota abaixo passando como parametros conforme o exemplo:  
 
-> YOUR-HOST:4040/clients  
+> YOUR-HOST:4040/users  
 
-8 - Para listar os dados de um cliente específico, utilize o método GET na rota abaixo, passando o ID no corpo da requisição como no exemplo abaixo:
-> YOUR-HOST:4040/clients/id 
+```
+ {   
+    "name": " ",
+    "lastname": " "     
+}
+```
+
+8 - Para listar os dados de um usuário pelo nickname, utilize o método GET na rota abaixo, passando o nickname no corpo da requisição como no exemplo abaixo:
+> YOUR-HOST:4040/users
 
  ```
  {   
-  "id": "1",  
+  "nickname": " ",  
       
 }
 ```
+9 - Para editar/atualizar o sobrenome e o endereço de um usuário cadastrado, utilize o método PATCH na rota:  
 
+> YOUR-HOST:4040/users  
 
-9 - Para editar/atualizar um cliente cadastrado, utilize a seguinte o método PATCH na rota:  
-
-> YOUR-HOST:4040/clients  
-
-Lembre-se de passar o ID do cliente que você estará atualizando, conforme o exemplo abaixo:  
+Lembre-se de passar o ID do usuário que você estará atualizando, conforme o exemplo abaixo:  
 ```
   {
     "id": "1",
-    "client_type": " ",
-    "client_status": " ",
-    "name": " ",
-    "last_name": " ",
-    "cpf": " ",
-    "email": " ",
-    "phone": " ",
-    "cep": " ",
-    "address": " ",
-    "number": " ",
-    "city": " ",
-    "state": " ",
-    "opening_hour": " ",
-    "day_of_service": " ",
-    "vehicles": " "
+    "lastname": " ",
+    "address": " "
+    
 }
 ```
 10 - Para deletar um cliente da base de dados utilize o método DELETE na seguinte rota:  
 
- > YOUR-HOST:4040/clients
+ > YOUR-HOST:4040/users
 
 Basta passar o ID do cliente que deseja excluir conforme o exemplo:  
 

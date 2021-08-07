@@ -138,7 +138,7 @@ exports.updateNickname = async (req, res) => {
         .then(user => {            
             if(user.length > 0 ){
                 return res.status(400).send({message: "Nickname already exists"});
-            } else {
+            } else {                
                 User.update(userToUpdate, {
                     where: {
                         id: req.body.id
@@ -148,7 +148,7 @@ exports.updateNickname = async (req, res) => {
                         if (status == 1) {
                             return res.status(202).send({
                                 message: "Updated sucessfully!",                           
-                                nickname: userToUpdate.nickname
+                                user: user
                             })
                         } else {
                             return res.status(202).send({
