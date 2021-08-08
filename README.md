@@ -34,7 +34,7 @@ passando no corpo com formato raw JSON:
 }
 ```
   
-7 - Para listar os usuários pelo nome e/ou sobrenome utilize o método GET na rota abaixo passando como parametros conforme o exemplo:  
+4 - Para listar os usuários pelo nome e/ou sobrenome utilize o método GET na rota abaixo passando como parametros conforme o exemplo:  
 
 > YOUR-HOST:4040/users  
 
@@ -45,16 +45,18 @@ passando no corpo com formato raw JSON:
 }
 ```
 
-8 - Para listar os dados de um usuário pelo nickname, utilize o método GET na rota abaixo, passando o nickname no corpo da requisição como no exemplo abaixo:
-> YOUR-HOST:4040/users
+5 - Para listar os dados de um usuário pelo nickname, utilize o método GET na rota abaixo, passando o nickname no corpo da requisição como no exemplo abaixo:  
+> YOUR-HOST:4040/users/nickname
 
  ```
  {   
-  "nickname": " ",  
+  "nickname": " "  
       
 }
 ```
-9 - Para editar/atualizar o sobrenome e o endereço de um usuário cadastrado, utilize o método PATCH na rota:  
+Ele irá retornar o name, lastname e o nickname no formato JSON.  
+
+6 - Para editar/atualizar o sobrenome e o endereço de um usuário cadastrado, utilize o método PATCH na rota:  
 
 > YOUR-HOST:4040/users  
 
@@ -66,12 +68,26 @@ Lembre-se de passar o ID do usuário que você estará atualizando, conforme o e
     "address": " "
     
 }
+```  
+7 - Para editar/atualizar o nickname de um usuário cadastrado, utilize o método PATCH na rota:  
+
+> YOUR-HOST:4040/users/nickname  
+
+Lembre-se de passar o ID do usuário que você estará atualizando, conforme o exemplo abaixo:  
 ```
-10 - Para deletar um cliente da base de dados utilize o método DELETE na seguinte rota:  
+  {
+    "id": "1",
+    "nickname": " "
+    
+    
+}
+```
+
+8 - Para deletar um usuário da base de dados utilize o método DELETE na seguinte rota:  
 
  > YOUR-HOST:4040/users
 
-Basta passar o ID do cliente que deseja excluir conforme o exemplo:  
+Basta passar o ID do usuário que deseja excluir conforme o exemplo:  
 
  ```
  {   

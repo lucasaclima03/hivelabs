@@ -128,7 +128,7 @@ exports.updateNickname = async (req, res) => {
     const userToUpdate = {
         id: req.body.id,                
         nickname: req.body.nickname      
-    }   
+    }  
     
     User.findAll({
         where: {
@@ -147,7 +147,7 @@ exports.updateNickname = async (req, res) => {
                     .then(status => {
                         if (status == 1) {
                             return res.status(202).send({
-                                message: "Updated sucessfully!",                           
+                                message: "Updated sucessfully!",                                                        
                                 user: user
                             })
                         } else {
