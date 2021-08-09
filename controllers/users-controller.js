@@ -98,7 +98,7 @@ exports.update = (req, res) => {
         id: id_user,                        
         lastname: req.body.lastname,        
         address: req.body.address        
-    }
+    }    
     
     User.update(user, {
         where: {
@@ -107,7 +107,7 @@ exports.update = (req, res) => {
     })
         .then(status => {
             if (status == 1) {
-                return res.status(202).send({
+                return res.status(202).send({                    
                     message: "Updated sucessfully!",                           
                     user: user
                 })
