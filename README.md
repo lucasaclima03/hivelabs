@@ -94,6 +94,12 @@ Basta passar o ID do usuário que deseja excluir conforme o exemplo:
   "id": "1"      
 }
 ```
+Extra:  
+
+Para listar todos os usuários cadastrados no banco de dados, utilizar o método GET na rota:  
+  
+  > YOUR-HOST:4040/users/getall
+
 
 ### Links
 [Linkedin:] (https://www.linkedin.com/in/lucasaclima03/)

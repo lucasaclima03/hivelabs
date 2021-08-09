@@ -147,8 +147,8 @@ exports.updateNickname = async (req, res) => {
                     .then(status => {
                         if (status == 1) {
                             return res.status(202).send({
-                                message: "Updated sucessfully!",                                                        
-                                user: user
+                                message: "Updated sucessfully!"                             
+                               
                             })
                         } else {
                             return res.status(202).send({
