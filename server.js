@@ -1,9 +1,7 @@
-const http = require('http')
-const app = require('./app')
-const port = process.env.PORT || 4040
+import app from "./app";
 
-const server = http.createServer(app)
-
-server.listen(port)
-
-console.log('http://localhost:' + port);
+const port = 4040;
+app.listen(port, () => {
+  console.log();
+  console.log("Servidor rodando na porta: " + port);
+});

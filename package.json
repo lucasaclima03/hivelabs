@@ -1,7 +1,7 @@
 {
-  "name": "loglife-api",
+  "name": "hivelabs-teste",
   "version": "1.0.0",
-  "description": "Teste pratico backend Loglife",
+  "description": "Teste pratico backend HiveLabs",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -12,6 +12,7 @@
   "dependencies": {
     "bcrypt": "^5.0.1",
     "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.10.0",
@@ -19,6 +20,10 @@
     "sqlite3": "^5.0.2"
   },
   "devDependencies": {
-    "nodemon": "^2.0.12"
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.24.2",
+    "nodemon": "^2.0.12",
+    "sucrase": "^3.20.2"
   }
 }
